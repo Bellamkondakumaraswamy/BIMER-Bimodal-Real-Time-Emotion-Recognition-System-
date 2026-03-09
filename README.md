@@ -17,7 +17,7 @@ By combining complementary cues from acoustic signals and linguistic content, th
 # Live Demo
 
 Try the system online:
-huggingface.co/spaces/mrflex/BIMER-Emotion-Recognition
+https://huggingface.co/spaces/mrflex/BIMER-Emotion-Recognition
 (Note: Wait for the webpage to load. It may take some time)
 
 ---
