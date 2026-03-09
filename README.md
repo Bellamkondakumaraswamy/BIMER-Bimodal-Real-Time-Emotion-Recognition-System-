@@ -1,3 +1,14 @@
+---
+title: BIMER-Emotion-Recognition
+emoji: 🎭
+colorFrom: indigo
+colorTo: purple
+sdk: gradio
+sdk_version: 4.0.0
+app_file: app.py
+pinned: false
+---
+
 # BiMER – Bimodal Emotion Recognition System
 
 A bimodal emotion recognition framework that analyzes **speech and text** to predict human emotions using modern transformer-based models.

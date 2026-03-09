@@ -47,6 +47,35 @@ class SERClassifier(nn.Module):
         return self.net(x)
 
 # ----------------------------
+# Model Downloading Logic (for HF Spaces)
+# ----------------------------
+
+MODELS = {
+    "ter_model.pt": "https://huggingface.co/spaces/Vishnu539/emotion-recognition/resolve/main/saved_models/ter_model.pt",
+    "ser_classifier.pt": "https://huggingface.co/spaces/Vishnu539/emotion-recognition/resolve/main/saved_models/ser_classifier.pt"
+}
+
+def download_weights():
+    import requests
+    os.makedirs("saved_models", exist_ok=True)
+    for filename, url in MODELS.items():
+        path = os.path.join("saved_models", filename)
+        if not os.path.exists(path):
+            print(f"Downloading {filename} from Hugging Face...")
+            try:
+                response = requests.get(url, stream=True)
+                response.raise_for_status()
+                with open(path, 'wb') as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                print(f"✅ Downloaded {filename}")
+            except Exception as e:
+                print(f"❌ Failed to download {filename}: {e}")
+
+# Call download before loading
+download_weights()
+
+# ----------------------------
 # Load Models
 # ----------------------------
 
